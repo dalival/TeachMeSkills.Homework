@@ -10,20 +10,31 @@ namespace TMS.Net07.Homework.HelloWorld
     {
         static void Main(string[] args)
         {
-            int number = 0; // где-то мне говорили, что лучше всегда присваивать начальное значение. Безопаснее.
-            Console.Write("Введите целое число: ");
+            int number = 0; // мне говорили, что лучше присваивать начальное значение. Безопаснее.
             while (true)
             {
-                string input = Console.ReadLine();
-                if (int.TryParse(input, out number))
+                Console.Write("Введите целое число: ");
+                while (true)
+                {
+                    string input = Console.ReadLine();
+                    if (int.TryParse(input, out number))
+                        break;
+                    else
+                        Console.WriteLine("Введите корректное число!");
+                }
+                if (number == 0)
+                {
+                    Console.WriteLine("\nВвод нуля прекращает выполнение программы. До новых встреч!");
                     break;
-                else
-                    Console.WriteLine("Введите корректное число!");
+                }
+                Console.WriteLine($"\nВаше число: {number}." +
+                    "\nМожете ввести еще одно, мы можем делать это до бесконечности." +
+                    "\nЕсли надоело, введите 0.\n");
             }
-
-            Console.Write($"\nВаше число: {number}. До свидания!"); // знак доллара чтобы считывать
-                                                    // переменные в фигурных скобках
             Console.ReadKey(); // чтобы программа не вылетала в конце
         }
     }
 }
+
+//TODO: что если пользователь сразу введет 0? Программа вылетит, а он не поймет почему.
+//UPD: добавил сообщение о выходе из программы. Так хоть понятно будет почему вылетело.
