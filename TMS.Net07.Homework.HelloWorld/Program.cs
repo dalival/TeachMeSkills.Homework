@@ -10,10 +10,18 @@ namespace TMS.Net07.Homework.HelloWorld
     {
         static void Main(string[] args)
         {
+            int number = 0; // где-то мне говорили, что лучше всегда присваивать начальное значение. Безопаснее.
             Console.Write("Введите целое число: ");
-            int number = int.Parse(Console.ReadLine());
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out number))
+                    break;
+                else
+                    Console.WriteLine("Введите корректное число!");
+            }
 
-            Console.Write($"Ваше число: {number}"); // знак доллара чтобы считывать
+            Console.Write($"\nВаше число: {number}. До свидания!"); // знак доллара чтобы считывать
                                                     // переменные в фигурных скобках
             Console.ReadKey(); // чтобы программа не вылетала в конце
         }
