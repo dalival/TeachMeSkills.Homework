@@ -35,14 +35,12 @@ namespace Middle
                     }
                     catch
                     {
-                        Console.WriteLine("Incorrect input. Such date doesn't exist.\n");
+                        Console.WriteLine("Incorrect input. Such date doesn't exist. If you want to exit enter \"exit\".\n");
                         continue;
                     }
                 }
                 else
-                {
                     Console.WriteLine("Incorrect input. Please follow the DD.MM.YYYY format. If you want to exit enter \"exit\".\n");
-                }
             }
             Console.ReadKey();
         }
