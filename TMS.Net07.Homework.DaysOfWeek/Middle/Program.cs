@@ -23,11 +23,11 @@ namespace Middle
                 }
                 if (Regex.IsMatch(input, dateFormat))
                 {
-                    // I can use Parse instead of TryParse because of regex above
+                    //I can use Parse instead of TryParse because of regex above
                     int day = int.Parse(input.Substring(0,2));
                     int month = int.Parse(input.Substring(3, 2));
                     int year = int.Parse(input.Substring(6));
-                    // regex doesn't work perfectly, for example user still can enter 39.10.2020. It'll cause exception. 
+                    //regex doesn't work perfectly, for example user still can enter 39.10.2020. It'll cause exception. 
                     try
                     {
                         DateTime date = new DateTime(year, month, day);
@@ -41,7 +41,7 @@ namespace Middle
                 }
                 else
                 {
-                    Console.WriteLine("Incorrect input. Please follow the DD.MM.YYYY format.\n");
+                    Console.WriteLine("Incorrect input. Please follow the DD.MM.YYYY format. If you want to exit enter \"exit\".\n");
                 }
             }
             Console.ReadKey();
