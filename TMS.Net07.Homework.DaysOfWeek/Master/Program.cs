@@ -18,7 +18,7 @@ namespace Master
                 string input = Console.ReadLine();
                 if (input.ToLower() == "exit")
                 {
-                    Console.WriteLine("\nThis command finish the program. Good bye!");
+                    Console.WriteLine(Environment.NewLine, "This command finish the program. Good bye!");
                     break;
                 }
                 if (Regex.IsMatch(input, dateFormat))
@@ -28,17 +28,15 @@ namespace Master
                     int month = int.Parse(input.Substring(3, 2));
                     int year = int.Parse(input.Substring(6));
                     if (CheckDate(day, month, year))
-                        Console.WriteLine("\nIt's " + CalculateDayOfWeek(day, month, year) + ". Enter another date or \"exit\" to exit.\n");
+                        Console.WriteLine($"{Environment.NewLine}It's {CalculateDayOfWeek(day, month, year)}. Enter another date or \"exit\" to exit.{Environment.NewLine}");
                     else
-                        Console.WriteLine("Incorrect input. Such date doesn't exist. If you want to exit enter \"exit\".\n");
+                        Console.WriteLine($"Incorrect input. Such date doesn't exist. If you want to exit enter \"exit\".{Environment.NewLine}");
                 }
                 else
-                    Console.WriteLine("Incorrect input. Please follow the DD.MM.YYYY format. If you want to exit enter \"exit\".\n");
+                    Console.WriteLine($"Incorrect input. Please follow the DD.MM.YYYY format. If you want to exit enter \"exit\".{Environment.NewLine}");
             }
             Console.ReadKey();
         }
-
-
         static bool CheckDate(int day, int month, int year)
         {
             if (year > 0 && year < 3000)
