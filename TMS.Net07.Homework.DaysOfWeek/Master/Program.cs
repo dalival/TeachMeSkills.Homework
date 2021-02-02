@@ -11,6 +11,7 @@ namespace Master
     {
         static void Main(string[] args)
         {
+            // our program is for dates from 01.01.0001 to 31.12.2999
             string dateFormat = @"^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](0?0?0?[1-9]|0?0?[1-9]{2}|0?[1-9]{3}|1\d{3}|2\d{3})$"; //doesn't check 100% adequacy
             while (true)
             {
@@ -29,7 +30,7 @@ namespace Master
                     int year = int.Parse(input.Substring(6));
                     if (CheckDate(day, month, year))
                     {
-                        Console.WriteLine($"{Environment.NewLine}It's {CalculateDayOfWeek(day, month, year)}. Enter another date or \"exit\" to exit.{Environment.NewLine}");
+                        Console.WriteLine($"{Environment.NewLine}It's {GetDayOfWeek(day, month, year)}. Enter another date or \"exit\" to exit.{Environment.NewLine}");
                     }
                     else
                     {
@@ -65,7 +66,7 @@ namespace Master
             }
             return true;
         }
-        static int CalculateAmountOfDays(int day, int month, int year)
+        static int GetNumberOfDays(int day, int month, int year)
         {
             int amountPastYears = (365 * (year - 1)) + ((year - 1) / 4) - (year / 100 - year / 400);
             int amountThisYear = 0;
@@ -77,72 +78,112 @@ namespace Master
                 case 2: // February
                     amountThisYear = 31 + day;
                     break;
-                case 3:
+                case 3: // March etc.
                     amountThisYear = 59 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 4:
                     amountThisYear = 90 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 5:
                     amountThisYear = 120 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 6:
                     amountThisYear = 151 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 7:
                     amountThisYear = 181 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 8:
                     amountThisYear = 212 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 9:
                     amountThisYear = 243 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 10:
                     amountThisYear = 273 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 11:
                     amountThisYear = 304 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
                 case 12:
                     amountThisYear = 334 + day;
                     if (year % 4 == 0)
+                    {
                         if (!(year % 100 == 0 && year % 400 != 0))
+                        {
                             amountThisYear++;
+                        }
+                    }
                     break;
             }
             return (amountPastYears + amountThisYear);
         }
-        static string CalculateDayOfWeek(int day, int month, int year)
+        static string GetDayOfWeek(int day, int month, int year)
         {
-            switch (CalculateAmountOfDays(day, month, year) % 7)
+            switch (GetNumberOfDays(day, month, year) % 7)
             {
                 case 1:
                     return "Monday";
@@ -159,9 +200,8 @@ namespace Master
                 case 0:
                     return "Sunday";
                 default:
-                    break;
+                    return "Error";
             }
-            return "Error";
         }
     }
 }
