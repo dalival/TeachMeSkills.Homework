@@ -68,118 +68,44 @@ namespace Master
         }
         static int GetNumberOfDays(int day, int month, int year)
         {
-            int amountPastYears = (365 * (year - 1)) + ((year - 1) / 4) - (year / 100 - year / 400);
-            int amountThisYear = 0;
+            int numberInPastYears = (365 * (year - 1)) + ((year - 1) / 4) - (year / 100 - year / 400);
+            int numberInCurrentYear = 0;
+            for (int i = 1; i < month; i++)
+            {
+                numberInCurrentYear += GetNumberOfDays(i, year);
+            }
+            numberInCurrentYear += day;
+            return (numberInPastYears + numberInCurrentYear);
+        }
+        static int GetNumberOfDays(int month, int year)
+        {
             switch (month)
             {
-                case 1: // if entered month is January
-                    amountThisYear = day;
-                    break;
-                case 2: // February
-                    amountThisYear = 31 + day;
-                    break;
-                case 3: // March etc.
-                    amountThisYear = 59 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
-                case 4:
-                    amountThisYear = 90 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
+                case 1:
+                case 3:
                 case 5:
-                    amountThisYear = 120 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
-                case 6:
-                    amountThisYear = 151 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
                 case 7:
-                    amountThisYear = 181 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
                 case 8:
-                    amountThisYear = 212 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
-                case 9:
-                    amountThisYear = 243 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
                 case 10:
-                    amountThisYear = 273 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
-                case 11:
-                    amountThisYear = 304 + day;
-                    if (year % 4 == 0)
-                    {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
-                    }
-                    break;
                 case 12:
-                    amountThisYear = 334 + day;
-                    if (year % 4 == 0)
+                    return 31;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    return 30;
+                case 2:
+                    if (year % 4 == 0 && !(year % 100 == 0 && year % 400 != 0))
                     {
-                        if (!(year % 100 == 0 && year % 400 != 0))
-                        {
-                            amountThisYear++;
-                        }
+                        return 29;
                     }
-                    break;
+                    else
+                    {
+                        return 28;
+                    }
+                default:
+                    return 0;
             }
-            return (amountPastYears + amountThisYear);
         }
         static string GetDayOfWeek(int day, int month, int year)
         {
