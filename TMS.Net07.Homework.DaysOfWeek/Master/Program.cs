@@ -11,7 +11,8 @@ namespace Master
     {
         static void Main(string[] args)
         {
-            string dateFormat = @"[0-3]\d\.[0-1]\d\.\d{4}"; //doesn't check 100% adequacy
+            //string dateFormat = @"^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"; //doesn't check 100% adequacy
+            string dateFormat = @"^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](0?0?0?[1-9]|0?0?[1-9]{2}|0?[1-9]{3}|1\d{3}|2\d{3})$"; //doesn't check 100% adequacy
             while (true)
             {
                 Console.WriteLine("Enter date in format DD.MM.YYYY:");
@@ -39,48 +40,20 @@ namespace Master
         }
         static bool CheckDate(int day, int month, int year)
         {
-            if (year > 0 && year < 3000)
+            if (month == 4 || month == 6 || month == 9 || month == 11) // months with 30 days, not 31
+                if (day > 30)
+                    return false;
+            if (month == 2) // February
             {
-                if (month > 0 && month < 13)
+                if (year % 4 == 0 && !(year % 100 == 0 && year % 400 != 0)) // year is leap; year isn't 100/200/300/500 (such years are divisible by 4, but aren't leap years)
                 {
-                    switch (month)
-                    {
-                        case 1:
-                        case 3:
-                        case 5:
-                        case 7:
-                        case 8:
-                        case 10:
-                        case 12:
-                            if (day > 0 && day < 32)
-                                return true;
-                            break;
-                        case 4:
-                        case 6:
-                        case 9:
-                        case 11:
-                            if (day > 0 && day < 31)
-                                return true;
-                            break;
-                        case 2:
-                            if (year % 4 == 0) //leap year
-                            {
-                                if (!(year % 100 == 0 && year % 400 != 0)) // year isn't 100 or 200 or 300 or 500 (such years are divisible by 4, but are not leap years)
-                                {
-                                    if (day > 0 && day < 30)
-                                        return true;
-                                }
-                            }
-                            else
-                            {
-                                if (day > 0 && day < 29)
-                                    return true;
-                            }
-                            break;
-                    }
+                    if (day > 29)
+                        return false;
                 }
+                else if (day > 28)
+                    return false;
             }
-            return false;
+            return true;
         }
         static int CalculateAmountOfDays(int day, int month, int year)
         {
@@ -88,10 +61,10 @@ namespace Master
             int amountThisYear = 0;
             switch (month)
             {
-                case 1:
+                case 1: // if entered month is January
                     amountThisYear = day;
                     break;
-                case 2:
+                case 2: // February
                     amountThisYear = 31 + day;
                     break;
                 case 3:
