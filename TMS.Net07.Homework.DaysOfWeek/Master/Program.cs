@@ -11,7 +11,6 @@ namespace Master
     {
         static void Main(string[] args)
         {
-            //string dateFormat = @"^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$"; //doesn't check 100% adequacy
             string dateFormat = @"^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](0?0?0?[1-9]|0?0?[1-9]{2}|0?[1-9]{3}|1\d{3}|2\d{3})$"; //doesn't check 100% adequacy
             while (true)
             {
@@ -19,7 +18,7 @@ namespace Master
                 string input = Console.ReadLine();
                 if (input.ToLower() == "exit")
                 {
-                    Console.WriteLine(Environment.NewLine, "This command finish the program. Good bye!");
+                    Console.WriteLine($"{Environment.NewLine}This command finish the program. Good bye!");
                     break;
                 }
                 if (Regex.IsMatch(input, dateFormat))
@@ -29,29 +28,40 @@ namespace Master
                     int month = int.Parse(input.Substring(3, 2));
                     int year = int.Parse(input.Substring(6));
                     if (CheckDate(day, month, year))
+                    {
                         Console.WriteLine($"{Environment.NewLine}It's {CalculateDayOfWeek(day, month, year)}. Enter another date or \"exit\" to exit.{Environment.NewLine}");
+                    }
                     else
+                    {
                         Console.WriteLine($"Incorrect input. Such date doesn't exist. If you want to exit enter \"exit\".{Environment.NewLine}");
+                    }
                 }
                 else
+                {
                     Console.WriteLine($"Incorrect input. Please follow the DD.MM.YYYY format. If you want to exit enter \"exit\".{Environment.NewLine}");
+                }
             }
             Console.ReadKey();
         }
         static bool CheckDate(int day, int month, int year)
         {
-            if (month == 4 || month == 6 || month == 9 || month == 11) // months with 30 days, not 31
-                if (day > 30)
-                    return false;
+            if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) // months with 30 days, not 31
+            {
+                return false;
+            }
             if (month == 2) // February
             {
-                if (year % 4 == 0 && !(year % 100 == 0 && year % 400 != 0)) // year is leap; year isn't 100/200/300/500 (such years are divisible by 4, but aren't leap years)
+                if (day > 29)
                 {
-                    if (day > 29)
-                        return false;
-                }
-                else if (day > 28)
                     return false;
+                }
+                if (year % 4 != 0 || (year % 100 == 0 && year % 400 != 0)) // if year isn't leap OR year is 100/200/300/500 (such years are divisible by 4, but aren't leap)
+                {
+                    if (day > 28)
+                    {
+                        return false;
+                    }
+                }
             }
             return true;
         }
