@@ -1,0 +1,7 @@
+C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Middle\bin\Release\Middle.exe.config
+C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Middle\bin\Release\Middle.exe
+C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Middle\bin\Release\Middle.pdb
+C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Middle\obj\Release\Middle.csprojAssemblyReference.cache
+C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Middle\obj\Release\Middle.csproj.CoreCompileInputs.cache
+C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Middle\obj\Release\Middle.exe
+C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Middle\obj\Release\Middle.pdb
