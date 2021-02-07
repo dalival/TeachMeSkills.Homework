@@ -154,11 +154,10 @@ namespace Beginner
                 amount = Math.Round(amount, 4);
                 Console.WriteLine($"{Environment.NewLine}{amount} {source} is equal to {result} {target}");
                 Console.WriteLine($"{Environment.NewLine}Do you want to convert again? Press Y or N.");
-                Console.Write("-> ");
                 string yesOrNo;
                 while (true)
                 {
-                    yesOrNo = Console.ReadKey().Key.ToString().ToLower();
+                    yesOrNo = Console.ReadKey(true).Key.ToString().ToLower();
                     if (yesOrNo == "y" || yesOrNo == "n")
                     {
                         break;
