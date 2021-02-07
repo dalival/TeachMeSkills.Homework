@@ -25,7 +25,7 @@ namespace Beginner
         static void Main(string[] args)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-            do
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Supported currencies: BYN, USD, EUR, RUB", Environment.NewLine);
@@ -153,10 +153,24 @@ namespace Beginner
                 double result = Math.Round(amount * coefficient, 4);
                 amount = Math.Round(amount, 4);
                 Console.WriteLine($"{Environment.NewLine}{amount} {source} is equal to {result} {target}");
-                Console.WriteLine($"{Environment.NewLine}Do you want to convert again? Input Y or N.");
+                Console.WriteLine($"{Environment.NewLine}Do you want to convert again? Press Y or N.");
                 Console.Write("-> ");
+                string yesOrNo;
+                while (true)
+                {
+                    yesOrNo = Console.ReadKey().Key.ToString().ToLower();
+                    if (yesOrNo == "y" || yesOrNo == "n")
+                    {
+                        break;
+                    }
+                }
+                if (yesOrNo == "n")
+                {
+                    Console.WriteLine($"{Environment.NewLine}{Environment.NewLine}Ok, good bye!");
+                    break;
+                }
             }
-            while (Console.ReadLine().Trim().ToLower().StartsWith("y"));
+            Console.ReadKey();
         }
     }
 }
