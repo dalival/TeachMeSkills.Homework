@@ -37,7 +37,7 @@ namespace Beginner
                     source = Console.ReadLine().ToUpper();
                     if (source != "BYN" && source != "USD" && source != "EUR" && source != "RUB")
                     {
-                        Console.WriteLine($"{Environment.NewLine}Please input supported currency:");
+                        Console.WriteLine($"{Environment.NewLine}Invalid input. Please input supported currency:");
                         Console.Write("-> ");
                         continue;
                     }
@@ -52,13 +52,13 @@ namespace Beginner
                     target = Console.ReadLine().ToUpper();
                     if (target != "BYN" && target != "USD" && target != "EUR" && target != "RUB")
                     {
-                        Console.WriteLine($"{Environment.NewLine}Please input supported currency:");
+                        Console.WriteLine($"{Environment.NewLine}Invalid input. Please input supported currency:");
                         Console.Write("-> ");
                         continue;
                     }
                     if (target == source)
                     {
-                        Console.WriteLine($"{Environment.NewLine}Please input another currency:");
+                        Console.WriteLine($"{Environment.NewLine}You can't convert from {source} to {target}. Please input another currency:");
                         Console.Write("-> ");
                         continue;
                     }
@@ -70,19 +70,15 @@ namespace Beginner
                 Console.Write("-> ");
                 while (true)
                 {
-                    try
+                    if (!Double.TryParse(Console.ReadLine(), out amount))
                     {
-                        amount = Convert.ToDouble(Console.ReadLine());
-                    }
-                    catch
-                    {
-                        Console.WriteLine($"{Environment.NewLine}Please enter the correct value:");
+                        Console.WriteLine($"{Environment.NewLine}Invalid input. Please input the correct value:");
                         Console.Write("-> ");
                         continue;
                     }
                     if (amount < 0)
                     {
-                        Console.WriteLine($"{Environment.NewLine}Please enter the correct value:");
+                        Console.WriteLine($"{Environment.NewLine}Amount can not be negative. Please input the correct value:");
                         Console.Write("-> ");
                         continue;
                     }
