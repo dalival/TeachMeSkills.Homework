@@ -1,6 +1,0 @@
-C:\Other\TMS.Net07.Homework\DaysOfWeek\TMS.Net07.Homework\bin\Release\TMS.Net07.Homework.exe.config
-C:\Other\TMS.Net07.Homework\DaysOfWeek\TMS.Net07.Homework\bin\Release\TMS.Net07.Homework.exe
-C:\Other\TMS.Net07.Homework\DaysOfWeek\TMS.Net07.Homework\bin\Release\TMS.Net07.Homework.pdb
-C:\Other\TMS.Net07.Homework\DaysOfWeek\TMS.Net07.Homework\obj\Release\TMS.Net07.Homework.csproj.CoreCompileInputs.cache
-C:\Other\TMS.Net07.Homework\DaysOfWeek\TMS.Net07.Homework\obj\Release\TMS.Net07.Homework.exe
-C:\Other\TMS.Net07.Homework\DaysOfWeek\TMS.Net07.Homework\obj\Release\TMS.Net07.Homework.pdb

@@ -1,7 +1,0 @@
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Beginner\bin\Debug\TMS.Net07.Homework.exe.config
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Beginner\bin\Debug\TMS.Net07.Homework.exe
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Beginner\bin\Debug\TMS.Net07.Homework.pdb
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Beginner\obj\Debug\Beginner.csprojAssemblyReference.cache
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Beginner\obj\Debug\Beginner.csproj.CoreCompileInputs.cache
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Beginner\obj\Debug\TMS.Net07.Homework.exe
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Beginner\obj\Debug\TMS.Net07.Homework.pdb
