@@ -10,19 +10,20 @@ namespace Middle
     {
         static void Main(string[] args)
         {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             double firstValue, secondValue;
             while (true)
             {
+                Console.Clear();
                 while (true)
                 {
-                    Console.Clear();
                     Console.Write("Input first value: ");
-                    try
+                    if (Double.TryParse(Console.ReadLine(), out firstValue))
                     {
-                        firstValue = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine($"Done{Environment.NewLine}");
                         break;
                     }
-                    catch
+                    else
                     {
                         Console.WriteLine($"Please input the correct value.{Environment.NewLine}");
                     }
@@ -30,17 +31,17 @@ namespace Middle
                 while (true)
                 {
                     Console.Write("Input second value: ");
-                    try
+                    if(Double.TryParse(Console.ReadLine(), out secondValue))
                     {
-                        secondValue = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine($"Done{Environment.NewLine}");
                         break;
                     }
-                    catch
+                    else
                     {
                         Console.WriteLine($"Please input the correct value.{Environment.NewLine}");
                     }
                 }
-                Console.Write("Input operation: ");
+                Console.Write("Press one of the keys [ + - * / % ]: ");
                 while (true)
                 {
                     switch (Console.ReadKey(true).KeyChar)
