@@ -54,7 +54,7 @@ namespace TMS.Net07.Homework
                             d = DaysOfWeek.Sunday;
                             break;
                         case "exit":
-                            Console.WriteLine("\nThis command ends the program. Good bye!");
+                            Console.WriteLine($"{Environment.NewLine}This command ends the program. Good bye!");
                             Console.ReadKey();
                             return;
                         default:
@@ -67,29 +67,29 @@ namespace TMS.Net07.Homework
                 switch (d)
                 {
                     case DaysOfWeek.Monday:
-                        Console.WriteLine("\nПонедельник");
+                        Console.WriteLine($"{Environment.NewLine}Понедельник");
                         break;
                     case DaysOfWeek.Tuesday:
-                        Console.WriteLine("\nВторник");
+                        Console.WriteLine($"{Environment.NewLine}Вторник");
                         break;
                     case DaysOfWeek.Wednesday:
-                        Console.WriteLine("\nСреда");
+                        Console.WriteLine($"{Environment.NewLine}Среда");
                         break;
                     case DaysOfWeek.Thursday:
-                        Console.WriteLine("\nЧетверг");
+                        Console.WriteLine($"{Environment.NewLine}Четверг");
                         break;
                     case DaysOfWeek.Friday:
-                        Console.WriteLine("\nПятница");
+                        Console.WriteLine($"{Environment.NewLine}Пятница");
                         break;
                     case DaysOfWeek.Saturday:
-                        Console.WriteLine("\nСуббота");
+                        Console.WriteLine($"{Environment.NewLine}Суббота");
                         break;
                     case DaysOfWeek.Sunday:
-                        Console.WriteLine("\nВоскресенье");
+                        Console.WriteLine($"{Environment.NewLine}Воскресенье");
                         break;
                 }
 
-                Console.WriteLine("\nOk let's do it again. Or enter \"exit\" to exit.");
+                Console.WriteLine($"{Environment.NewLine}Ok let's do it again. Or enter \"exit\" to exit.");
             }
         }
     }

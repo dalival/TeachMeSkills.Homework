@@ -18,7 +18,7 @@ namespace Middle
                 string input = Console.ReadLine();
                 if (input.ToLower() == "exit")
                 {
-                    Console.WriteLine("\nThis command finish the program. Good bye!");
+                    Console.WriteLine($"{Environment.NewLine}This command finish the program. Good bye!");
                     break;
                 }
                 if (Regex.IsMatch(input, dateFormat))
@@ -31,16 +31,16 @@ namespace Middle
                     try
                     {
                         DateTime date = new DateTime(year, month, day);
-                        Console.WriteLine("\nIt's " + date.DayOfWeek + ". Enter another date or \"exit\" to exit.\n");
+                        Console.WriteLine($"{Environment.NewLine}It's {date.DayOfWeek}. Enter another date or \"exit\" to exit.{Environment.NewLine}");
                     }
                     catch
                     {
-                        Console.WriteLine("Incorrect input. Such date doesn't exist. If you want to exit enter \"exit\".\n");
+                        Console.WriteLine($"Incorrect input. Such date doesn't exist. If you want to exit enter \"exit\".{Environment.NewLine}");
                         continue;
                     }
                 }
                 else
-                    Console.WriteLine("Incorrect input. Please follow the DD.MM.YYYY format. If you want to exit enter \"exit\".\n");
+                    Console.WriteLine($"Incorrect input. Please follow the DD.MM.YYYY format. If you want to exit enter \"exit\".{Environment.NewLine}");
             }
             Console.ReadKey();
         }
