@@ -1,7 +1,0 @@
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Master\bin\Debug\Master.exe.config
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Master\bin\Debug\Master.exe
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Master\bin\Debug\Master.pdb
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Master\obj\Debug\Master.csprojAssemblyReference.cache
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Master\obj\Debug\Master.csproj.CoreCompileInputs.cache
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Master\obj\Debug\Master.exe
-C:\Other\TMS.Net07.Homework\TMS.Net07.Homework.DaysOfWeek\Master\obj\Debug\Master.pdb
