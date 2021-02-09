@@ -35,7 +35,7 @@ namespace Master
 
                 if (input.ToLower() == "exit")
                 {
-                    Console.WriteLine("This command ends the program. Good bye!");
+                    Console.WriteLine($"{Environment.NewLine}This command ends the program. Good bye!");
                     Console.ReadKey();
                     return;
                 }
@@ -43,16 +43,20 @@ namespace Master
                 if (binaryOperator.IsMatch(input))
                 {
                     // Any operator can be a separator to identify firstValue.
-                    // If we select the wrong operator, an exception will be thrown and we'll try another operator.
+                    // If we selected the wrong operator we'll try another operator.
                     int i;
                     for (i = 0; i < 5; i++)
                     {
-                        try
+                        int operatorPosition = input.IndexOf(operators[i].ToLower(), 1); // will become -1 if there isn't desired operator in string
+                        if (operatorPosition == -1) 
                         {
-                            firstValue = Convert.ToDouble(input.Substring(0, input.IndexOf(operators[i].ToLower(), 1)));
+                            continue;
+                        }
+                        if (Double.TryParse(input.Substring(0, operatorPosition), out firstValue))
+                        {
                             break;
                         }
-                        catch
+                        else
                         {
                             continue;
                         }
@@ -60,11 +64,11 @@ namespace Master
 
                     if (i == 4) // if operator is "pow"
                     {
-                        secondValue = Convert.ToDouble(input.Substring(input.IndexOf(operators[i].ToLower()) + 3)); // +3 because line "pow" have 3 characters. We need substring since "w", not "p".
+                        secondValue = Double.Parse(input.Substring(input.IndexOf(operators[i].ToLower()) + 3)); // +3 because line "pow" have 3 characters. We need substring since "w", not "p".
                     }
                     else
                     {
-                        secondValue = Convert.ToDouble(input.Substring(input.IndexOf(operators[i].ToLower(), 1) + 1));
+                        secondValue = Double.Parse(input.Substring(input.IndexOf(operators[i].ToLower(), 1) + 1));
                     }
 
                     switch (operators[i])
@@ -91,11 +95,11 @@ namespace Master
                 {
                     if (input.Substring(0, 4) == "sqrt")
                     {
-                        result = Math.Sqrt(Convert.ToDouble(input.Substring(4)));
+                        result = Math.Sqrt(Double.Parse(input.Substring(4)));
                     }
                     else if (input.Substring(0, 3) == "sqr")
                     {
-                        result = Math.Pow(Convert.ToDouble(input.Substring(3)), 2);
+                        result = Math.Pow(Double.Parse(input.Substring(3)), 2);
                     }
                 }
 
