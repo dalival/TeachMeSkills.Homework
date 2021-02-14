@@ -10,8 +10,8 @@ namespace Shapes
         public Triangle(Point a, Point b, Point c)
         {
             A = a ?? throw new ArgumentNullException(nameof(a));
-            A = b ?? throw new ArgumentNullException(nameof(b));
-            A = c ?? throw new ArgumentNullException(nameof(c));
+            B = b ?? throw new ArgumentNullException(nameof(b));
+            C = c ?? throw new ArgumentNullException(nameof(c));
         }
         public override double GetPerimeter()
         {

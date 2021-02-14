@@ -9,7 +9,7 @@ namespace Shapes
         public Rectangle(Point a, Point b)
         {
             A = a ?? throw new ArgumentNullException(nameof(a));
-            A = b ?? throw new ArgumentNullException(nameof(b));
+            B = b ?? throw new ArgumentNullException(nameof(b));
             if(a.X == b.X || a.Y == b.Y)
             {
                 throw new Exception("Two diagonally opposite points cannot be on the same line");
