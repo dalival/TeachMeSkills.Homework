@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Shapes
 {
@@ -6,24 +7,25 @@ namespace Shapes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Program is working...");
-
-            var drawer = new ConsoleDescriptionDrawer();
-            var circle = new Circle(new Point(10, 5), 3);
-            var triangle = new Triangle(new Point(1, 1), new Point(3, 1), new Point(2, 3));
-            var rectangle = new Rectangle(new Point(4, 1), new Point(6, 4));
+            Console.WriteLine($"Enter the shape name and it's points. Integers only. Available formats:" +
+                              $"{Environment.NewLine}-> triangle (x,y) (x,y) (x,y)" +
+                              $"{Environment.NewLine}-> rectangle (x,y) (x,y)" +
+                              $"{Environment.NewLine}-> circle (x,y) r");
             
-            drawer.Draw(rectangle);
-            drawer.Draw(triangle);
-            drawer.Draw(circle);
+            var regexTriangle = new Regex(@"^triangle(\s?\(\s?\d+\s?,\s?\d+\s?\)){3}$",
+                RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+            var regexRectangle = new Regex(@"^rectangle(\s?\(\s?\d+\s?,\s?\d+\s?\)){2}$",
+                RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+            var regexCircle = new Regex(@"^circle\s?\(\s?\d+\s?,\s?\d+\s?\)\s?\d+$",
+                RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
 
-            var drawerRus = new ConsoleRusDescriptionDrawer();
+            while (true)
+            {
+                var input = Console.ReadLine();
+                Console.WriteLine(regexTriangle.IsMatch(input) ? "Yes it is!" : "No it isn't!");
+            }
 
-            drawerRus.Draw(rectangle);
-            drawerRus.Draw(triangle);
-            drawerRus.Draw(circle);
-
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
