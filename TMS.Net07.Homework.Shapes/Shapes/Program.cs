@@ -17,6 +17,12 @@ namespace Shapes
             drawer.Draw(triangle);
             drawer.Draw(circle);
 
+            var drawerRus = new ConsoleRusDescriptionDrawer();
+
+            drawerRus.Draw(rectangle);
+            drawerRus.Draw(triangle);
+            drawerRus.Draw(circle);
+
             Console.ReadLine();
         }
     }

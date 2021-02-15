@@ -2,7 +2,7 @@
 
 namespace Shapes
 {
-    public class ConsoleDescriptionDrawer : Drawer
+    public class ConsoleRusDescriptionDrawer : Drawer
     {
         public override void Draw(Shape shape)
         {
@@ -10,22 +10,22 @@ namespace Shapes
             var points = shape.GetPoints();
             if (shape.GetType() == typeof(Triangle))
             {
-                Console.WriteLine($" - the triangle with vertices " +
+                Console.WriteLine($" - треугольник с вершинами " +
                                   $"({points[0]},{points[1]}), " +
                                   $"({points[2]},{points[3]}), " +
                                   $"({points[4]},{points[5]})");
             }
             if (shape.GetType() == typeof(Rectangle))
             {
-                Console.WriteLine($" - the rectangle with vertices " +
+                Console.WriteLine($" - прямоугольник с вершинами " +
                                   $"({points[0]},{points[1]}), " +
                                   $"({points[2]},{points[3]})");
             }
             if (shape.GetType() == typeof(Circle))
             {
-                Console.WriteLine($" - the circle with center in " +
+                Console.WriteLine($" - круг с центром в " +
                                   $"({points[0]},{points[1]}) " +
-                                  $"and radius R = {points[2]}");
+                                  $"и радиусом R = {points[2]}");
             }
         }
     }
